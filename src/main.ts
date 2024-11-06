@@ -1,12 +1,14 @@
 import { provideRouter } from '@angular/router';
+import { provideHttpClient } from '@angular/common/http';
+import { provideAnimations } from '@angular/platform-browser/animations';  // <-- Import de provideAnimations
 import { bootstrapApplication } from '@angular/platform-browser';
 import { AppComponent } from './app/app.component';
-import { routes } from './app/app.routes'; // <-- Import des routes
-import { provideHttpClient } from '@angular/common/http'; // <-- Import de provideHttpClient
+import { routes } from './app/app.routes';
 
 bootstrapApplication(AppComponent, {
   providers: [
     provideRouter(routes),
-    provideHttpClient()  // <-- Ajout de HttpClient ici
+    provideHttpClient(),
+    provideAnimations()  // <-- Fournit les animations à l’application
   ]
 });

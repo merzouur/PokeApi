@@ -30,14 +30,13 @@ export class PokemonService {
           (entry: any) => entry.language.name === 'fr'
         )?.flavor_text;
 
-        // Appel pour récupérer les données du Pokémon et inclure le sprite animé
         return this.http.get<any>(`${this.baseUrl}/pokemon/${speciesData.id}`).pipe(
           map((pokemonData) => {
             return {
               name: nameInFrench ? nameInFrench.name : speciesData.name,
               description: descriptionInFrench || 'Description non disponible en français',
-              sprite: pokemonData.sprites.front_default, // Sprite statique par défaut
-              animatedSprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${speciesData.id}.gif` // Sprite animé
+              sprite: pokemonData.sprites.front_default, 
+              animatedSprite: `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/versions/generation-v/black-white/animated/${speciesData.id}.gif` 
             };
           })
         );

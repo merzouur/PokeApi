@@ -1,1 +1,16 @@
-<p>pokedex-gen1 works!</p>
+<div class="pokedex">
+    <div *ngIf="pokemonList().length > 0; else loading" class="pokemon-list">
+      <div *ngFor="let pokemon of pokemonList()" class="pokemon-card" @fadeIn>
+        <div class="pokemon-header">
+          <h3>{{ pokemon.name | titlecase }}</h3>
+        </div>
+        <img [src]="pokemon.animatedSprite" alt="Sprite de {{ pokemon.name }}" class="pokemon-image">
+        <div class="pokemon-content">
+          <p>{{ pokemon.description }}</p>
+        </div>
+      </div>
+    </div>
+    <ng-template #loading>
+      <p>Chargement des Pokémon...</p>
+    </ng-template>
+  </div>

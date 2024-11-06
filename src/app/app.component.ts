@@ -13,6 +13,6 @@ import { RouterModule } from '@angular/router';
     <router-outlet></router-outlet>
   `,
   standalone: true,
-  imports: [RouterModule]  // <-- Import du RouterModule ici pour routerLink et router-outlet
+  imports: [RouterModule] 
 })
 export class AppComponent {}
