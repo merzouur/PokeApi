@@ -11,7 +11,7 @@
         <p>{{ pokemon.description }}</p>
       </div>
       <!-- Conteneur pour les icônes de types -->
-      <div class="container" class="pokemon-types">
+      <div class="pokemon-types">
         <img *ngFor="let type of pokemon.types" [src]="'assets/types/' + type + '.png'" [alt]="type" class="type-icon">
       </div>
     </div>

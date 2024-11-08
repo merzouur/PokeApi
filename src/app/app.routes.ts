@@ -4,11 +4,13 @@ import { PokedexGen1Component } from './components/pokedex-gen1/pokedex-gen1.com
 import { PokedexGen2Component } from './components/pokedex-gen2/pokedex-gen2.component';
 import { PokedexGen3Component } from './components/pokedex-gen3/pokedex-gen3.component';
 import { PokedexGen4Component } from './components/pokedex-gen4/pokedex-gen4.component';
+import { PokedexGen5Component } from './pokedex-gen5/pokedex-gen5.component';
 
 export const routes: Routes = [
   { path: 'gen1', component: PokedexGen1Component },
   { path: 'gen2', component: PokedexGen2Component },
   { path: 'gen3', component: PokedexGen3Component },
   { path: 'gen4', component: PokedexGen4Component },
+  { path: 'gen5', component: PokedexGen5Component }, 
   { path: '', redirectTo: '/gen1', pathMatch: 'full' }
 ];

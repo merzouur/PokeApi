@@ -1,14 +1,14 @@
-import { Component, OnInit, signal } from '@angular/core';
-import { PokemonService } from '../../services/pokemon.service';
+import { Component, signal } from '@angular/core';
+import { PokemonService } from '../services/pokemon.service';
+import { NgFor, NgIf, TitleCasePipe } from '@angular/common';
 import { trigger, transition, style, animate } from '@angular/animations';
-import { NgForOf, NgIf, TitleCasePipe } from '@angular/common';
 
 @Component({
-  selector: 'app-pokedex-gen3',
+  selector: 'app-pokedex-gen5',
   standalone: true,
-  imports: [NgForOf, NgIf, TitleCasePipe],
-  templateUrl: './pokedex-gen3.component.html',
-  styleUrl: './pokedex-gen3.component.scss',
+  imports: [NgFor, NgIf, TitleCasePipe],
+  templateUrl: './pokedex-gen5.component.html',
+  styleUrl: './pokedex-gen5.component.scss',
   animations: [
     trigger('fadeIn', [
       transition(':enter', [
@@ -18,13 +18,13 @@ import { NgForOf, NgIf, TitleCasePipe } from '@angular/common';
     ])
   ]
 })
-export class PokedexGen3Component {
+export class PokedexGen5Component {
   pokemonList = signal<any[]>([]); 
 
   constructor(private pokemonService: PokemonService) {}
 
   ngOnInit(): void {
-    this.pokemonService.getPokemonByGeneration(3).subscribe({
+    this.pokemonService.getPokemonByGeneration(5).subscribe({
       next: (data: any[]) => {
         console.log("Données récupérées : ", data); 
         this.pokemonList.set(data); 
@@ -35,5 +35,3 @@ export class PokedexGen3Component {
     });
   }
 }
-
-
